@@ -112,11 +112,11 @@
 						{required: true, message: '请输入金额', trigger: 'blur'},
 						{
 							validator(rule, value, callback) {
-								let reg = /^-?\d{1,5}(?:\.\d{1,2})?$/
+								let reg = /^-?\d{1,9}(?:\.\d{1,2})?$/
 								if (reg.test(value)) {
 									callback()
 								} else {
-									callback(new Error('请输入大于零小于十万不超过两位小数的数字'))
+									callback(new Error('请输入大于零小于十亿的不超过两位小数的数字'))
 								}
 							},
 							trigger: 'blur'

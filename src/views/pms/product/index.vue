@@ -21,9 +21,10 @@
       </div>
       <div style="margin-top: 20px">
         <el-form :inline="true" :model="listQuery" size="small" label-width="140px">
-          <!--          <el-form-item label="输入搜索：">
-                      <el-input style="width: 203px" v-model="listQuery.keyword" placeholder="商品名称"></el-input>
-                    </el-form-item>
+          <el-form-item label="输入商品名搜索：">
+            <el-input style="width: 203px" v-model="listQuery.keyword" placeholder="商品名称"></el-input>
+          </el-form-item>
+          <!--
                     <el-form-item label="商品货号：">
                       <el-input style="width: 203px" v-model="listQuery.productSn" placeholder="商品货号"></el-input>
                     </el-form-item>-->
