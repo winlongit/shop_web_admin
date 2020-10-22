@@ -27,15 +27,14 @@ service.interceptors.response.use(
     /**
      * code为非200是抛错 可结合自己业务进行修改
      */
-    const res = response.data
-    console.log(response, res, res.code)
+    console.log('response.headers[\'token\']: ',response.headers['authorization'])
+    let res = response.data
     if (res.code !== 200 && res.code !== "200") {
       Message({
         message: res.msg,
         type: 'error',
         duration: 3 * 1000
       })
-
       // 401:未登录;
       if (res.code === 401 || res.code === 403) {
         MessageBox.confirm('你已被登出，可以取消继续留在该页面，或者重新登录', '确定登出', {
@@ -50,7 +49,8 @@ service.interceptors.response.use(
       }
       return Promise.reject('error')
     } else {
-      return response.data
+      res.token = response.headers['authorization']
+      return res
     }
   },
   error => {

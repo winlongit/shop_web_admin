@@ -37,6 +37,26 @@ export const constantRouterMap = [
     }]
   },
   {
+    path: '/ums',
+    component: Layout,
+    redirect: '/ums/users',
+    name: 'ums',
+    meta: {title: '用户', icon: 'user'},
+    children: [{
+      path: 'users',
+      name: 'users',
+      component: () => import('@/views/ums/users/index'),
+      meta: {title: '用户列表', icon: 'user'}
+    },
+      {
+      path: 'adduser',
+      name: 'adduser',
+      component: () => import('@/views/ums/users/add'),
+      meta: {title: '添加用户', icon: 'user'}
+    },
+    ]
+  },
+  {
     path: '/pms',
     component: Layout,
     redirect: '/pms/product',
